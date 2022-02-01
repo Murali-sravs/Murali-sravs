@@ -1,0 +1,26 @@
+AKIAWTNRSZEBSJLWDYV4
+
+
+
+VBijdNBI0PLFhTWdnc/6bdVsHSOEaTI2bv+1ng3p Hide
+
+
+
+
+
+provider "aws" {
+  region     = "ap-south-1"
+  access_key = "AKIAWTNRSZEBSJLWDYV4"
+  secret_key = "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"
+}
+
+resource "aws_s3_bucket" "b" {
+  bucket = "murali-8080"
+  acl    = "private"
+
+  tags = {
+    Name        = "murali-8080"
+    Environment = "Dev"
+  }
+}
+
