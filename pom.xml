@@ -1,0 +1,58 @@
+provider "aws" {
+  region     = "ap-south-1"
+  access_key = "AKIAWTNRSZEBSJLWDYV4"
+  secret_key = "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"
+}
+
+resource "aws_s3_bucket" "b" {
+  bucket = "murali-8080"
+  acl    = "private"
+
+  tags = {
+    Name        = "murali-8080"
+    Environment = "Dev"
+  }
+}
+
+
+pipeline {
+    agent any
+    
+    tools {
+        terraform 'terraform'
+        }
+        stages {
+            stage ('chectout from GIT') {
+                steps {
+                    git branch: 'main', credentialsId: 'murali', url: 'https://github.com/Murali-sravs/Murali-sravs.git'
+                    
+                    
+                }
+            }
+            stage ('terraform init') {
+                steps {
+                sh 'terraform init'
+            }
+        }'
+        stage ('terraform fnt') {
+            steps {
+                sh 'terraform fnt'
+            }
+        }
+        stage ('terraform validate') {
+            steps {
+                sh 'terraform validate'
+            }
+        }
+        stage ('terraform plan') {
+            steps {
+                sh 'terraform plan'
+            }
+        }
+        stage ('terraform apply') {
+            steps {
+                sh 'terraform apply'
+            }
+        }
+    }
+}
