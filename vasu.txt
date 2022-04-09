@@ -1,0 +1,17 @@
+Take ec2 instance
+login into mobaxterm
+cd /opt
+ls
+amazon-linux-extras install java-openjdk11
+Take tomcat9 link address
+wget (Link address)
+tar -xvzf 
+ll
+mv apache-tomcat-9.0.56 tomcat
+ll
+cd tomcat/
+ll
+cd bin
+ll
+./startup.sh
+Tomcat started.
