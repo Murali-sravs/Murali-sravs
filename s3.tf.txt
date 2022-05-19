@@ -1,7 +1,7 @@
 provider "aws" {
   region     = "ap-south-1"
   access_key = "AKIAWTNRSZEBSJLWDYV4"
-  secret_key = "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"
+  secret_key = "VBijdNBI0PLFhTWdnc/6bdVsHSOEaTI2bv+1ng3m"
 }
 resource "aws_s3_bucket" "b" {
   bucket = "murali-8080"
